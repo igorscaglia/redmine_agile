@@ -1,54 +1,41 @@
-= Free Agile Light Plugin
+# Free Agile Light Plugin
 
-== Install
+## Instalação
 
-* Go to {RAILS_APP}/plugins on your redmine path
-\> git clone https://github.com/igorscaglia/redmine_agile.git redmine_agile
-* Back to {RAILS_APP}
-* Run bundle install --without development test RAILS_ENV=production
-* Run bundle exec rake redmine:plugins:migrate NAME=redmine_agile RAILS_ENV=production
+Siga os passos abaixo para instalar o plugin no Redmine:
 
-== Uninstall
+1. Acesse o diretório de plugins do seu Redmine:
+   ```sh
+   cd {RAILS_APP}/plugins
+   ```
+2. Clone o repositório do plugin:
+   ```sh
+   git clone https://github.com/igorscaglia/redmine_agile.git redmine_agile
+   ```
+3. Volte para o diretório principal do Redmine:
+   ```sh
+   cd {RAILS_APP}
+   ```
+4. Instale as dependências necessárias:
+   ```sh
+   bundle install --without development test RAILS_ENV=production
+   ```
+5. Execute a migração do plugin:
+   ```sh
+   bundle exec rake redmine:plugins:migrate NAME=redmine_agile RAILS_ENV=production
+   ```
 
-<pre>
-bundle exec rake redmine:plugins NAME=redmine_agile VERSION=0 RAILS_ENV=production
-rm -r plugins/redmine_agile
-</pre>
+## Desinstalação
 
-== Test
+Para remover o plugin, siga os passos abaixo:
 
-bundle exec rake db:drop db:create db:migrate redmine:plugins RAILS_ENV=test
-bundle exec rake test TEST="plugins/redmine_agile/test/**/*_test.rb" RAILS_ENV=test
+1. Execute o comando para remover a migração do plugin:
+   ```sh
+   bundle exec rake redmine:plugins NAME=redmine_agile VERSION=0 RAILS_ENV=production
+   ```
+2. Remova o diretório do plugin:
+   ```sh
+   rm -r plugins/redmine_agile
+   ```
 
-== API
-
-* REST API agile_sprint
-
-API request #index
-GET /projests/<projects_id>/agile_spints.xml or /projests/<projects_id>/agile_spints.json
-
-API request #show
-GET /projests/<projects_id>/agile_spints/<sprint_id>.xml or /projests/<projects_id>/agile_spints/<sprint_id>.json
-Example: GET demo.redmineup.com/projects/agile/agile_sprints/3.json
-
-API request #create
-POST /projects/<projects_id>/agile_sprints.json?key=<your_api_key>
-  {
-    "agile_sprint": {
-        "name": "Sprint 46",
-        "start_date": "23.07.2022",
-        "end_date": "24.07.2022"
-    }
-}
-
-API request #update
-PUT /projects/<projects_id>/agile_sprints/<sprint_id>.json?key=<your_api_key>
-  {
-    "agile_sprint": {
-        "name": "New name",
-    }
-}
-
-API request #destroy
-DELETE /projests/<projects_id>/agile_spints/<sprint_id>.xml or /projests/<projects_id>/agile_spints/<sprint_id>.json
-Example: DELETE demo.redmineup.com/projects/agile/agile_sprints/67.json
+Pronto! O plugin foi instalado ou removido conforme necessário.
