@@ -3,7 +3,7 @@
 == Install
 
 * Go to {RAILS_APP}/plugins on your redmine path
-* Run git clone https://github.com/igorscaglia/redmine_agile.git redmine_agile
+* Run git clone [https://github.com/igorscaglia/redmine_agile.git] redmine_agile
 * Back to {RAILS_APP}
 * Run bundle install --without development test RAILS_ENV=production
 * Run bundle exec rake redmine:plugins:migrate NAME=redmine_agile RAILS_ENV=production
