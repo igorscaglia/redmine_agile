@@ -24,6 +24,10 @@ Siga os passos abaixo para instalar o plugin no Redmine:
    ```sh
    bundle exec rake redmine:plugins:migrate NAME=redmine_agile RAILS_ENV=production
    ```
+6. Reinicie o Redmine para aplicar as alterações:
+   ```sh
+   touch tmp/restart.txt
+   ```
 
 ## Desinstalação
 
@@ -37,5 +41,10 @@ Para remover o plugin, siga os passos abaixo:
    ```sh
    rm -r plugins/redmine_agile
    ```
+3. Reinicie o Redmine para aplicar as alterações:
+   ```sh
+   touch tmp/restart.txt
+   ```
 
 Pronto! O plugin foi instalado ou removido conforme necessário.
+
