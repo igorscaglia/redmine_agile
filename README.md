@@ -24,7 +24,11 @@ Siga os passos abaixo para instalar o plugin no Redmine:
    ```sh
    bundle exec rake redmine:plugins:migrate NAME=redmine_agile RAILS_ENV=production
    ```
-6. Reinicie o Redmine para aplicar as alterações:
+   Ou (Preferível):
+   ```sh
+   bundle exec rake redmine:plugins:migrate RAILS_ENV=production
+   ```
+7. Reinicie o Redmine para aplicar as alterações:
    ```sh
    touch tmp/restart.txt
    ```
